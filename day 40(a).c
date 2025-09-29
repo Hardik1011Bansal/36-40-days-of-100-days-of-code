@@ -1,4 +1,4 @@
-//Q78 (2D Arrays)
+//Q79 (2D Arrays)
 //Perform diagonal traversal of a matrix.
 #include<stdio.h>
 
