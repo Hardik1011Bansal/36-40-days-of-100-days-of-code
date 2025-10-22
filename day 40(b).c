@@ -1,67 +1,100 @@
 //Q80 (2D Arrays)
 //Multiply two matrices.
-#include<stdio.h>
+#include <stdio.h>
 
-int main()
+int main() 
 {
-    int n1,n2,n3,n4;
-    printf("Enter the number of rows and columns of the first  matrix respectively:");
-    scanf("%d %d",&n1,&n2);
-    
-    printf("Enter the number of rows and columns of the second  matrix respectively:");
-    scanf("%d %d",&n3,&n4);
-    
-    if(n2!=n3)
-    {
-        printf("Matrix multiplication can not take place ");
-        return 1;
-    }
-    
-    int a[n1][n2],b[n3][n4],c[n1][n4];
-    
-    for(int i=0;i<n1;i++)
-    {
-        for(int j=0;j<n2;j++)
+    int m,n;
+        printf("Enter the number of rows and columns in the first matrix respectively :");
+        scanf("%d%d",&m,&n);
+        if((m<=0)||(n<=0))
         {
-            printf("Enter a[%d][%d] entry of the firts matrix:",i,j);
-            scanf("%d",&a[i][j]);
+            printf("Such a matrix cannot exist ");
+            return 1;
         }
-    }
-    
-     for(int i=0;i<n3;i++)
-    {
-        for(int j=0;j<n4;j++)
+        int p,q;
+        
+        printf("Enter the number of rows and columns in the second matrix respectively :");
+        scanf("%d%d",&p,&q);
+        if((p<=0)||(q<=0))
         {
-            printf("Enter a[%d][%d] entry of the second matrix:",i,j);
-            scanf("%d",&b[i][j]);
+            printf("Such a matrix cannot exist ");
+            return 2;
         }
-    }
-    
-    for(int i=0;i<n1;i++)
-    {
-        for(int j=0;j<n4;j++)
+         int a[m][n],b[p][q];
+        for(int i=0;i<m;i++)
         {
-            int sum =0;
-            for(int k=0;k<n2;k++)
-            
+            for(int j=0;j<n;j++)
             {
+                printf("Enter the a[%d][%d] element of the first matrix :",i+1,j+1);
+                scanf("%d",&a[i][j]);
+             }
+        }
+        printf("\n");
+        
+         for(int i=0;i<p;i++)
+        {
+            for(int j=0;j<q;j++)
+            {
+                printf("Enter the b[%d][%d] element of the second matrix :",i+1,j+1);
+                scanf("%d",&b[i][j]);
+             }
+        }
+        
+        printf("           MATRIX 1\n");
+         for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                printf("%d\t",a[i][j]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+        
+        printf("           MATRIX 2\n");
+        for(int i=0;i<p;i++)
+        {
+            for(int j=0;j<q;j++)
+            {
+                printf("%d\t",b[i][j]);
+
+             }
+             printf("\n");
+        }
+        if(n!=p)
+        {
+            printf("Matrix multiplication cannot take place ");
+            return 3;
+        }
+        
+        int c[m][q];
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<q;j++)
+            {
+                int sum=0;
+                for(int k=0;k<n;k++)
                 sum+=a[i][k]*b[k][j];
                 c[i][j]=sum;
             }
-            
         }
-    }
-    
-    
-    for(int i=0;i<n1;i++)
-    {
-        for(int j=0;j<n4;j++)
+        printf("     RESULTANT PRODUCT MATRIX\n");
+        for(int i=0;i<m;i++)
         {
-            printf("%d\t",c[i][j]);
+            for(int j=0;j<q;j++)
+            {
+                printf("%d\t",c[i][j]);
+            }
+            printf("\n");
         }
-        printf("\n");
-    }
+        
+        
+        
+        
     
+   
+    
+
     return 0;
 }
-    
